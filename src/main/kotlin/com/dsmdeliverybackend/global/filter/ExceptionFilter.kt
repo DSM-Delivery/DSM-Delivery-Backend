@@ -1,6 +1,6 @@
 package com.dsmdeliverybackend.global.filter
 
-import com.dsmdeliverybackend.global.error.CustomException
+import com.dsmdeliverybackend.global.error.DsmDeliveryException
 import com.dsmdeliverybackend.global.error.response.BaseErrorResponse
 import com.dsmdeliverybackend.global.exception.InternalServerError
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -25,13 +25,13 @@ class ExceptionFilter (
         } catch (e: Exception) {
             e.printStackTrace()
             when (e) {
-                is CustomException -> setErrorMessage(e, response)
+                is DsmDeliveryException -> setErrorMessage(e, response)
                 else -> setErrorMessage(InternalServerError, response)
             }
         }
     }
 
-    private fun setErrorMessage(e: CustomException, response: HttpServletResponse) {
+    private fun setErrorMessage(e: DsmDeliveryException, response: HttpServletResponse) {
         val errorResponse = BaseErrorResponse.of(e.errorCode)
 
         response.characterEncoding = StandardCharsets.UTF_8.toString()
