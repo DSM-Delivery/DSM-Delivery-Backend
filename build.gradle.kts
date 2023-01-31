@@ -1,8 +1,9 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "3.0.2"
+    id("org.springframework.boot") version "2.7.1"
     id("io.spring.dependency-management") version "1.1.0"
+    kotlin("kapt") version "1.6.10"
     kotlin("jvm") version "1.7.22"
     kotlin("plugin.spring") version "1.7.22"
     kotlin("plugin.jpa") version "1.7.22"
@@ -18,9 +19,12 @@ repositories {
 
 dependencies {
 
+//    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+
+
     //DB
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    runtimeOnly("com.mysql:mysql-connector-j")
+    runtimeOnly("mysql:mysql-connector-java")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
 
     //security
@@ -33,6 +37,11 @@ dependencies {
     //validation
     implementation("org.springframework.boot:spring-boot-starter-validation")
 
+    //UUID time based
+    implementation("com.fasterxml.uuid:java-uuid-generator:3.1.4")
+
+
+
     //kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -42,6 +51,7 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
 }
+
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
@@ -53,3 +63,4 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
