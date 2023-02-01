@@ -5,6 +5,7 @@ import com.dsmdeliverybackend.global.security.jwt.JwtParser
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.HttpMethod
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
@@ -28,6 +29,9 @@ class SecurityConfig (
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         http
             .authorizeRequests()
+
+            .antMatchers(HttpMethod.POST,"/post").authenticated()
+
             .anyRequest().permitAll()
             .and().apply(FilterConfig(jwtParser, objectMapper))
 

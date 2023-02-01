@@ -25,7 +25,6 @@ class JwtParser (
                 .parseClaimsJws(token)
                 .body
         } catch (e: Exception) {
-            print(e.message) //TODO d
             when(e) {
                 is InvalidClaimException -> throw InvalidToken.Exception
                 is ExpiredJwtException -> throw ExpiredToken.Exception
