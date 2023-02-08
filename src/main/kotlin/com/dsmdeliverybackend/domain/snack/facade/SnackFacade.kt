@@ -1,5 +1,6 @@
 package com.dsmdeliverybackend.domain.snack.facade
 
+import com.dsmdeliverybackend.domain.product.ProductEntity
 import com.dsmdeliverybackend.domain.snack.domain.Snack
 import com.dsmdeliverybackend.domain.snack.domain.repository.SnackRepository
 import com.dsmdeliverybackend.domain.snack.exception.SnackNotFoundException
@@ -17,12 +18,14 @@ class SnackFacade (
         return snackRepository.existsBySnackName(snackName)
     }
 
-    fun saveSnack(request: AddSnackRequest) {
+    fun saveSnack(request: AddSnackRequest, product: ProductEntity) {
         snackRepository.save(
             Snack(
                 snackName = request.snackName,
                 price = request.price,
-                snackType = request.snackType
+                snackType = request.snackType,
+                productEntity = product,
+                productId = product.id
             )
         )
     }
