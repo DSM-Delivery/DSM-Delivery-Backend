@@ -12,8 +12,10 @@ enum class ErrorCode (
     PASSWORD_MIS_MATCH(401, "Password Mis Match"),
 
     USER_NOT_FOUND(404, "User Not Found"),
+    SNACK_NOT_FOUND(404, "Snack Not Found"),
 
     USER_ALREADY_EXIST(409, "User Already Exist"),
+    SNACK_ALREADY_EXIST(409, "Snack Already Exist"),
 
     INTERNAL_SERVER_ERROR(500, "Internal Server Error")
 
