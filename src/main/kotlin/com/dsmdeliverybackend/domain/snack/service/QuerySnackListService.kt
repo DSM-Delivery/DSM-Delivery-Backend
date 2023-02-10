@@ -13,8 +13,8 @@ class QuerySnackListService (
     fun execute(): SnackListResponse {
         val snackList = snackRepository.findAll()
             .map { SnackResponse(it) }
-            .toList();
+            .toList()
 
-        return SnackListResponse(snackList);
+        return SnackListResponse(snackList)
     }
 }

@@ -6,7 +6,6 @@ import com.dsmdeliverybackend.domain.snack.facade.SnackFacade
 import com.dsmdeliverybackend.domain.snack.presentation.dto.request.AddSnackRequest
 import com.dsmdeliverybackend.domain.product.ProductRepository
 import com.dsmdeliverybackend.global.enum.ProductType
-import com.fasterxml.uuid.Generators
 import org.springframework.stereotype.Service
 
 @Service
@@ -25,7 +24,7 @@ class AddSnackService (
 
         productRepository.save(product)
 
-        val snack = snackFacade.saveSnack(request, product)
+        snackFacade.saveSnack(request, product)
 
     }
 
