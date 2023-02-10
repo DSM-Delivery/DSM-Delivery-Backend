@@ -40,7 +40,9 @@ dependencies {
     //UUID time based
     implementation("com.fasterxml.uuid:java-uuid-generator:3.1.4")
 
-
+    //queryDsl
+    implementation("com.querydsl:querydsl-jpa:5.0.0")
+    kapt("com.querydsl:querydsl-apt:5.0.0:jpa")
 
     //kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -64,3 +66,6 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
+kotlin.sourceSets.main {
+    kotlin.srcDir("$buildDir/generated/source/kapt/main")
+}
