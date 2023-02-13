@@ -32,4 +32,9 @@ class Parcel (
     @Column(columnDefinition = "BIT(1)")
     var receive = receive
         protected set
+
+    fun Inspection (receive: Boolean) {
+        this.receive = receive
+    }
+
 }

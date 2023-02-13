@@ -2,9 +2,12 @@ package com.dsmdeliverybackend.domain.parcel.facade
 
 import com.dsmdeliverybackend.domain.parcel.domain.Parcel
 import com.dsmdeliverybackend.domain.parcel.domain.repository.ParcelRepository
+import com.dsmdeliverybackend.domain.parcel.exception.ParcelNotFoundException
 import com.dsmdeliverybackend.domain.product.ProductEntity
 import com.dsmdeliverybackend.domain.user.domain.User
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
+import java.util.UUID
 
 @Component
 class ParcelFacade (
@@ -20,6 +23,11 @@ class ParcelFacade (
                 user = user
             )
         )
+    }
+
+    fun getByParcelUUID(parcelId: UUID): Parcel {
+        return parcelRepository.findByIdOrNull(parcelId)
+            ?: throw ParcelNotFoundException
     }
 
 }
