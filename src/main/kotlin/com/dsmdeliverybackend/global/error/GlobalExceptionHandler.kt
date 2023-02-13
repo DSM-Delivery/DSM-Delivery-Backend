@@ -21,4 +21,12 @@ class GlobalExceptionHandler {
         return ResponseEntity<Map<String, String?>>(errorMap, HttpStatus.BAD_REQUEST)
     }
 
+    @ExceptionHandler(DsmDeliveryException::class)
+    fun handleCustomException(e: DsmDeliveryException): ResponseEntity<BaseErrorResponse> {
+        return ResponseEntity(
+            BaseErrorResponse.of(e),
+            HttpStatus.valueOf(e.status)
+        )
+    }
+
 }

@@ -32,7 +32,7 @@ class ExceptionFilter (
     }
 
     private fun setErrorMessage(e: DsmDeliveryException, response: HttpServletResponse) {
-        val errorResponse = BaseErrorResponse.of(e.errorCode)
+        val errorResponse = BaseErrorResponse.of(e)
 
         response.characterEncoding = StandardCharsets.UTF_8.toString()
         response.contentType = MediaType.APPLICATION_JSON_VALUE
