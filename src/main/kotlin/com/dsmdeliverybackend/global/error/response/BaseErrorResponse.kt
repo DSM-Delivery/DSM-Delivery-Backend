@@ -1,16 +1,17 @@
 package com.dsmdeliverybackend.global.error.response
 
-import com.dsmdeliverybackend.global.error.ErrorCode
+import com.dsmdeliverybackend.global.error.DsmDeliveryException
 
-class BaseErrorResponse(
+class BaseErrorResponse (
     val status: Int,
-    val message: String,
+    val message: String
 ) {
+
     companion object {
-        fun of(e: ErrorCode): BaseErrorResponse {
+        fun of(e: DsmDeliveryException): BaseErrorResponse {
             return BaseErrorResponse(
-                message = e.message,
                 status = e.status,
+                message = e.message
             )
         }
     }
