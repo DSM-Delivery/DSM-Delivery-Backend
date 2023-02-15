@@ -1,6 +1,6 @@
 package com.dsmdeliverybackend.domain.snack.domain
 
-import com.dsmdeliverybackend.domain.product.ProductEntity
+import com.dsmdeliverybackend.domain.product.domain.ProductEntity
 import com.dsmdeliverybackend.global.enum.SnackType
 import java.util.UUID
 import javax.persistence.*

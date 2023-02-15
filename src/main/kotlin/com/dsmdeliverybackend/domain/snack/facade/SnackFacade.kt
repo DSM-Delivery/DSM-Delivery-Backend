@@ -1,6 +1,6 @@
 package com.dsmdeliverybackend.domain.snack.facade
 
-import com.dsmdeliverybackend.domain.product.ProductEntity
+import com.dsmdeliverybackend.domain.product.domain.ProductEntity
 import com.dsmdeliverybackend.domain.snack.domain.Snack
 import com.dsmdeliverybackend.domain.snack.domain.repository.SnackRepository
 import com.dsmdeliverybackend.domain.snack.exception.SnackNotFoundException

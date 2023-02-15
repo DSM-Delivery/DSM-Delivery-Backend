@@ -2,8 +2,8 @@ package com.dsmdeliverybackend.domain.parcel.service
 
 import com.dsmdeliverybackend.domain.parcel.facade.ParcelFacade
 import com.dsmdeliverybackend.domain.parcel.presentation.dto.request.CreateParcelRequest
-import com.dsmdeliverybackend.domain.product.ProductEntity
-import com.dsmdeliverybackend.domain.product.ProductRepository
+import com.dsmdeliverybackend.domain.product.domain.ProductEntity
+import com.dsmdeliverybackend.domain.product.domain.repository.ProductRepository
 import com.dsmdeliverybackend.domain.user.facade.UserFacade
 import com.dsmdeliverybackend.global.enum.ProductType
 import org.springframework.stereotype.Service

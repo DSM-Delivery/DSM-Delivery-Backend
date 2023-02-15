@@ -1,6 +1,6 @@
 package com.dsmdeliverybackend.domain.parcel.domain
 
-import com.dsmdeliverybackend.domain.product.ProductEntity
+import com.dsmdeliverybackend.domain.product.domain.ProductEntity
 import com.dsmdeliverybackend.domain.user.domain.User
 import java.util.UUID
 import javax.persistence.*

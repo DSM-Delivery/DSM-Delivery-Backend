@@ -1,4 +1,4 @@
-package com.dsmdeliverybackend.domain.product
+package com.dsmdeliverybackend.domain.product.domain
 
 import com.dsmdeliverybackend.global.entity.BaseUUIDEntity
 import com.dsmdeliverybackend.global.enum.ProductType

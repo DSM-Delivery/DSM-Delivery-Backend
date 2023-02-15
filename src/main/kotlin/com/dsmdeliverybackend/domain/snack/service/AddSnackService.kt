@@ -1,10 +1,10 @@
 package com.dsmdeliverybackend.domain.snack.service
 
-import com.dsmdeliverybackend.domain.product.ProductEntity
+import com.dsmdeliverybackend.domain.product.domain.ProductEntity
 import com.dsmdeliverybackend.domain.snack.exception.SnackAlreadyExistException
 import com.dsmdeliverybackend.domain.snack.facade.SnackFacade
 import com.dsmdeliverybackend.domain.snack.presentation.dto.request.AddSnackRequest
-import com.dsmdeliverybackend.domain.product.ProductRepository
+import com.dsmdeliverybackend.domain.product.domain.repository.ProductRepository
 import com.dsmdeliverybackend.global.enum.ProductType
 import org.springframework.stereotype.Service
 
