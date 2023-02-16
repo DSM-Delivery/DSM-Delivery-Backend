@@ -2,15 +2,16 @@ package com.dsmdeliverybackend.domain.selection.domain
 
 import com.dsmdeliverybackend.domain.post.domain.Post
 import com.dsmdeliverybackend.domain.product.domain.ProductEntity
+import java.util.*
 import javax.persistence.*
 import javax.validation.constraints.NotNull
 
 @Table(name = "tbl_selection")
 @Entity
-class SelectionEntity (
+class SelectionEntity(
 
     @EmbeddedId
-    val Id: SelectionEntityId,
+    var Id: SelectionEntityId,
 
     @MapsId("post")
     @ManyToOne(fetch = FetchType.LAZY)
@@ -26,6 +27,6 @@ class SelectionEntity (
 
     @Column(columnDefinition = "VARCHAR(2)")
     @field:NotNull
-    val quantity: String
+    val quantity: String,
 
-)
+    )

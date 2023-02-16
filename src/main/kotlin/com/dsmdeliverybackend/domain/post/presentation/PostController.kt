@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/post")
 @RestController
 class PostController (
-    private val createPostService: CreatePostService
+    private val createPostService: CreatePostService,
 ) {
 
     @PostMapping

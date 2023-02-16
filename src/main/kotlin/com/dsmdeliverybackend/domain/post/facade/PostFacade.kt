@@ -11,8 +11,8 @@ class PostFacade(
     private val postRepository: PostRepository
 ) {
 
-    fun savePost(request: CreatePostRequest, user: User) {
-        postRepository.save(
+    fun savePost(request: CreatePostRequest, user: User) : Post{
+        return postRepository.save(
             Post(
                 title = request.title,
                 content = request.content,
