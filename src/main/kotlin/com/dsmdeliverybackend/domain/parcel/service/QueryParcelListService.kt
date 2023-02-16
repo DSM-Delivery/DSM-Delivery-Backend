@@ -11,7 +11,7 @@ class QueryParcelListService (
 ) {
 
     fun execute(): ParcelListResponse {
-        val parcelList = parcelRepository.queryParcelList()//TODO 여기서 에러
+        val parcelList = parcelRepository.queryParcelList()
 
         return ParcelListResponse(
             parcelList = parcelList

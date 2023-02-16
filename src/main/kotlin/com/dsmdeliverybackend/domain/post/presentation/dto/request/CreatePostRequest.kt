@@ -15,6 +15,8 @@ class CreatePostRequest (
     val cost: String,
 
     @field:NotBlank
-    val postType: PostType
+    val postType: PostType,
+
+    val selectionList: List<SelectionListRequest>
 
 )
