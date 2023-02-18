@@ -20,8 +20,7 @@ class Post (
     cost: String,
 
     @field: NotNull
-    @Enumerated(EnumType.STRING)
-    val postType: PostType,
+    val postType: String,
 
     isFinished: Boolean,
 
