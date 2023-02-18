@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository
 import java.util.UUID
 
 @Repository
-interface PostRepository : CrudRepository<Post, UUID> {
+interface PostRepository : CrudRepository<Post, UUID>, CustomPostRepository {
 }
