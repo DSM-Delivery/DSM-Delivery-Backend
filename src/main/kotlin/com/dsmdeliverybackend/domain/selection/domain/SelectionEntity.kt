@@ -20,7 +20,7 @@ class SelectionEntity(
     val post: Post,
 
     @MapsId("product")
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", columnDefinition = "BINARY(16)")
     @field:NotNull
     val productEntity: ProductEntity,
