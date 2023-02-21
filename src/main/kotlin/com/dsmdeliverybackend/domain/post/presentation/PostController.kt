@@ -4,9 +4,11 @@ import com.dsmdeliverybackend.domain.post.presentation.dto.request.CreatePostReq
 import com.dsmdeliverybackend.domain.post.presentation.dto.response.OrderPostListResponse
 import com.dsmdeliverybackend.domain.post.presentation.dto.response.PostUUIDResponse
 import com.dsmdeliverybackend.domain.post.presentation.dto.response.QueryPostDetailResponse
+import com.dsmdeliverybackend.domain.post.presentation.dto.response.RiderPostListResponse
 import com.dsmdeliverybackend.domain.post.service.CreatePostService
 import com.dsmdeliverybackend.domain.post.service.QueryPostDetailService
 import com.dsmdeliverybackend.domain.post.service.QueryOrderPostListService
+import com.dsmdeliverybackend.domain.post.service.QueryRiderPostListService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -20,7 +22,8 @@ import java.util.UUID
 class PostController (
     private val createPostService: CreatePostService,
     private val queryOrderPostListService: QueryOrderPostListService,
-    private val queryPostDetailService: QueryPostDetailService
+    private val queryPostDetailService: QueryPostDetailService,
+    private val queryRiderPostListService: QueryRiderPostListService
 ) {
 
     @PostMapping
@@ -31,6 +34,11 @@ class PostController (
     @GetMapping("/order")
     fun queryOrderPostList(): OrderPostListResponse {
         return queryOrderPostListService.execute()
+    }
+
+    @GetMapping("/rider")
+    fun queryRiderPostList(): RiderPostListResponse {
+        return queryRiderPostListService.execute()
     }
 
     @GetMapping("/{post-id}")

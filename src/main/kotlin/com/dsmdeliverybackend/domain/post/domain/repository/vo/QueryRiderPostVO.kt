@@ -1,9 +1,9 @@
 package com.dsmdeliverybackend.domain.post.domain.repository.vo
 
 import com.querydsl.core.annotations.QueryProjection
-import java.util.*
+import java.util.UUID
 
-class QueryPostVO @QueryProjection constructor(
+class QueryRiderPostVO @QueryProjection constructor(
     val title: String,
 
     val userName: String,
@@ -14,8 +14,5 @@ class QueryPostVO @QueryProjection constructor(
 
     val profileImg: String,
 
-    val star: Int,
-
-    val productType: String
-
+    val star: Int
 )

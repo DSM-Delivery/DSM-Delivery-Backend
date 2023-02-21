@@ -1,30 +1,22 @@
 package com.dsmdeliverybackend.domain.post.domain.repository
 
-import com.dsmdeliverybackend.domain.post.domain.QPost
 import com.dsmdeliverybackend.domain.post.domain.QPost.post
-import com.dsmdeliverybackend.domain.post.domain.repository.vo.QQueryPostDetailVO
-import com.dsmdeliverybackend.domain.post.domain.repository.vo.QQueryPostVO
-import com.dsmdeliverybackend.domain.post.domain.repository.vo.QueryPostDetailVO
-import com.dsmdeliverybackend.domain.post.domain.repository.vo.QueryPostVO
-import com.dsmdeliverybackend.domain.product.domain.QProductEntity
+import com.dsmdeliverybackend.domain.post.domain.repository.vo.*
 import com.dsmdeliverybackend.domain.product.domain.QProductEntity.productEntity
-import com.dsmdeliverybackend.domain.selection.domain.QSelectionEntity
 import com.dsmdeliverybackend.domain.selection.domain.QSelectionEntity.selectionEntity
-import com.dsmdeliverybackend.domain.user.domain.QUser
 import com.dsmdeliverybackend.domain.user.domain.QUser.user
 import com.querydsl.jpa.impl.JPAQueryFactory
-import org.springframework.transaction.annotation.Transactional
 import java.util.*
 
 class CustomPostRepositoryImpl(
     private val jpaQueryFactory: JPAQueryFactory
 ) : CustomPostRepository {
 
-    override fun queryOrderPostList(): List<QueryPostVO> {
+    override fun queryOrderPostList(): List<QueryOrderPostVO> {
 
         return jpaQueryFactory
             .select(
-                QQueryPostVO(
+                QQueryOrderPostVO(
                     post.title,
                     user.userName,
                     post.cost,
@@ -40,6 +32,26 @@ class CustomPostRepositoryImpl(
             .innerJoin(selectionEntity.productEntity, productEntity)
             .where(post.isFinished.isFalse, post.postType.eq("ORDER"))
             .distinct()
+            .fetch().toList()
+    }
+
+    override fun queryRiderPostList(): List<QueryRiderPostVO> {
+
+        return jpaQueryFactory
+            .select(
+                QQueryRiderPostVO(
+                    post.title,
+                    user.userName,
+                    post.cost,
+                    post.id,
+                    user.profileImg,
+                    user.star
+                )
+            )
+            .from(post)
+            .innerJoin(post.user, user)
+            .on(post.user.id.eq(user.id))
+            .where(post.isFinished.isFalse, post.postType.eq("RIDER"))
             .fetch().toList()
     }
 
