@@ -1,6 +1,5 @@
 package com.dsmdeliverybackend.domain.post.domain.repository.vo
 
-import com.dsmdeliverybackend.global.enum.PostType
 import com.querydsl.core.annotations.QueryProjection
 import java.util.*
 
@@ -17,6 +16,6 @@ class QueryPostVO @QueryProjection constructor(
 
     val star: Int,
 
-    val postType: String
+    val productType: String
 
 )

@@ -17,7 +17,7 @@ class CreateParcelService (
 
     fun execute(request: CreateParcelRequest) {
 
-        val product = ProductEntity(id = null, productType = ProductType.PARCEL)
+        val product = ProductEntity(id = null, productType = "PARCEL")
 
         productRepository.save(product)
 
