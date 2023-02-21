@@ -1,19 +1,19 @@
 package com.dsmdeliverybackend.domain.post.service
 
 import com.dsmdeliverybackend.domain.post.domain.repository.PostRepository
-import com.dsmdeliverybackend.domain.post.presentation.dto.response.PostListResponse
+import com.dsmdeliverybackend.domain.post.presentation.dto.response.OrderPostListResponse
 import com.dsmdeliverybackend.domain.post.presentation.dto.response.PostResponse
 import org.springframework.stereotype.Service
 
 @Service
-class QueryPostListService (
+class QueryOrderPostListService (
     private val postRepository: PostRepository
 ) {
 
-    fun execute(): PostListResponse {
-        val postList = postRepository.queryPostList()
+    fun execute(): OrderPostListResponse {
+        val postList = postRepository.queryOrderPostList()
 
-        return PostListResponse(
+        return OrderPostListResponse(
             postList =  postList
                 .map {
                     PostResponse(
@@ -22,8 +22,7 @@ class QueryPostListService (
                         cost = it.cost,
                         postId = it.postId,
                         profileImg = it.profileImg,
-                        star = it.star,
-                        postType = it.postType
+                        productType = it.productType
                     )
                 }
         )

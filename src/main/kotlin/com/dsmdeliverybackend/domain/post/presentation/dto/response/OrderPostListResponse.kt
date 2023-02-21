@@ -1,9 +1,8 @@
 package com.dsmdeliverybackend.domain.post.presentation.dto.response
 
-import com.dsmdeliverybackend.global.enum.PostType
 import java.util.*
 
-data class PostListResponse (
+data class OrderPostListResponse (
     val postList: List<PostResponse>
 )
 
@@ -18,7 +17,5 @@ class PostResponse (
 
     val profileImg: String,
 
-    val star: Int,
-
-    val postType: String
+    val productType: String
 )
