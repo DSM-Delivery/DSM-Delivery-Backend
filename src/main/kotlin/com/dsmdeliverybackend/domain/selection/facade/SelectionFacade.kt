@@ -11,4 +11,5 @@ class SelectionFacade (
     fun saveAllSelection(selectionList: List<SelectionEntity>) {
         selectionRepository.saveAll(selectionList)
     }
+
 }

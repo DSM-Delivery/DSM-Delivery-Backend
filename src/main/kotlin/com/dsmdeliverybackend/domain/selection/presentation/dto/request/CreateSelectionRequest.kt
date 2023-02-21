@@ -1,6 +1,5 @@
 package com.dsmdeliverybackend.domain.selection.presentation.dto.request
 
-import com.dsmdeliverybackend.global.enum.ProductType
 import java.util.UUID
 
 data class CreateSelectionRequest (
@@ -13,5 +12,5 @@ data class CreateSelectionRequest (
 class SelectionList(
     val productId: UUID,
     val quantity: String,
-    val productType: ProductType
+    val productType: String
 )

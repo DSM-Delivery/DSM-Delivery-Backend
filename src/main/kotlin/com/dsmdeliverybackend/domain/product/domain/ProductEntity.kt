@@ -1,7 +1,6 @@
 package com.dsmdeliverybackend.domain.product.domain
 
 import com.dsmdeliverybackend.global.entity.BaseUUIDEntity
-import com.dsmdeliverybackend.global.enum.ProductType
 import java.util.*
 import javax.persistence.*
 
@@ -11,8 +10,7 @@ class ProductEntity(
 
      id: UUID ?= null,
 
-    @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "CHAR(6)", nullable = false)
-    val productType: ProductType,
+    val productType: String,
 
 ) :BaseUUIDEntity(id)

@@ -2,7 +2,6 @@ package com.dsmdeliverybackend.domain.post.domain
 
 import com.dsmdeliverybackend.domain.user.domain.User
 import com.dsmdeliverybackend.global.entity.BaseUUIDEntity
-import com.dsmdeliverybackend.global.enum.PostType
 import java.util.UUID
 import javax.persistence.*
 import javax.validation.constraints.NotNull

@@ -5,7 +5,6 @@ import com.dsmdeliverybackend.domain.snack.exception.SnackAlreadyExistException
 import com.dsmdeliverybackend.domain.snack.facade.SnackFacade
 import com.dsmdeliverybackend.domain.snack.presentation.dto.request.AddSnackRequest
 import com.dsmdeliverybackend.domain.product.domain.repository.ProductRepository
-import com.dsmdeliverybackend.global.enum.ProductType
 import org.springframework.stereotype.Service
 
 @Service
@@ -20,7 +19,7 @@ class AddSnackService (
             throw SnackAlreadyExistException
         }
 
-        val product = ProductEntity(id = null, productType = ProductType.SNACK)
+        val product = ProductEntity(id = null, productType = "SNACK")
 
         productRepository.save(product)
 

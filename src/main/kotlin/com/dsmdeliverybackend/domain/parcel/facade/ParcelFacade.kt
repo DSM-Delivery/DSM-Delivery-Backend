@@ -20,7 +20,8 @@ class ParcelFacade (
                 productId = product.id,
                 productEntity = product,
                 receive = false,
-                user = user
+                user = user,
+                parcelName = "택배"
             )
         )
     }

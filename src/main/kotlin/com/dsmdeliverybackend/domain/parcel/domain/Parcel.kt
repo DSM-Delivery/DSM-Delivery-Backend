@@ -24,7 +24,11 @@ class Parcel (
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    val user: User
+    val user: User,
+
+    @Column(columnDefinition = "VARCHAR(2)")
+    @field:NotNull
+    val parcelName: String
 
 ) {
 
