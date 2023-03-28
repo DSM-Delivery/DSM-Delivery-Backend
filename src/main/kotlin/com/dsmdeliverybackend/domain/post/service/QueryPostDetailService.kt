@@ -19,7 +19,10 @@ class QueryPostDetailService (
             userName = postDetail.userName,
             profileImg = postDetail.profileImg,
             cost = postDetail.cost,
-            star = postDetail.star
+            location = postDetail.location,
+            riderRequest = postDetail.riderRequest,
+            star = postDetail.star,
+            productType = postDetail.productType
         )
     }
 }

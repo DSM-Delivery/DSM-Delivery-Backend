@@ -11,5 +11,11 @@ class QueryPostDetailResponse (
 
     val cost: String,
 
-    val star: Int
+    val location: String,
+
+    val riderRequest: String,
+
+    val star: Int,
+
+    val productType: String
 )
