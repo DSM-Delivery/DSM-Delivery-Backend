@@ -9,9 +9,15 @@ class QueryPostDetailVO @QueryProjection constructor(
 
     val cost: String,
 
+    val location: String,
+
+    val riderRequest: String,
+
     val userName: String,
 
     val profileImg: String,
 
-    val star: Int
+    val star: Int,
+
+    val productType: String
 )

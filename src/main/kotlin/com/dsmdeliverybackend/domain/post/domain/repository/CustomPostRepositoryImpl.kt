@@ -62,14 +62,19 @@ class CustomPostRepositoryImpl(
                     post.title,
                     post.content,
                     post.cost,
+                    post.location,
+                    post.riderRequest,
                     user.userName,
                     user.profileImg,
-                    user.star
+                    user.star,
+                    productEntity.productType
                 )
             )
             .from(post)
             .innerJoin(post.user, user)
             .on(post.user.id.eq(user.id))
+            .innerJoin(selectionEntity).on(selectionEntity.post.id.eq(post.id))
+            .innerJoin(selectionEntity.productEntity, productEntity)
             .where(post.id.eq(postId))
             .fetchFirst()
     }
