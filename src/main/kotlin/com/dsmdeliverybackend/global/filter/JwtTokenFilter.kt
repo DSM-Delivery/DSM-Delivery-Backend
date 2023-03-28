@@ -3,7 +3,6 @@ package com.dsmdeliverybackend.global.filter
 import com.dsmdeliverybackend.global.security.jwt.JwtParser
 import com.dsmdeliverybackend.global.security.jwt.JwtProperties
 import org.springframework.security.core.context.SecurityContextHolder
-import org.springframework.stereotype.Component
 import org.springframework.web.filter.OncePerRequestFilter
 import javax.servlet.FilterChain
 import javax.servlet.http.HttpServletRequest
