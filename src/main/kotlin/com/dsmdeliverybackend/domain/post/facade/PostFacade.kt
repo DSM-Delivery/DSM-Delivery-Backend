@@ -20,6 +20,8 @@ class PostFacade(
                 title = request.title,
                 content = request.content,
                 cost = request.cost,
+                location = request.location,
+                riderRequest = request.riderRequest,
                 postType = request.postType,
                 isFinished = false,
                 isChecked = false,
