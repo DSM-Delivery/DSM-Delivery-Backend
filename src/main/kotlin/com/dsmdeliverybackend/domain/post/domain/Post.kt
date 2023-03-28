@@ -27,8 +27,11 @@ class Post (
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    val user: User
+    val user: User,
 
+    location: String,
+
+    riderRequest: String
 
 ) :BaseUUIDEntity(id) {
 
@@ -52,5 +55,13 @@ class Post (
     @field:NotNull
     @Column(columnDefinition = "BIT(1)")
     var isChecked = isChecked
+
+    @field:NotNull
+    @Column(columnDefinition = "VARCHAR(15)")
+    var location = location
+
+    @field:NotNull
+    @Column(columnDefinition = "VARCHAR(50)")
+    var riderRequest = riderRequest
 
 }
