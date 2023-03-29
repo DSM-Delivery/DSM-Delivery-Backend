@@ -19,7 +19,7 @@ class UserMapper (
             role = request.role,
             canDriver = false,
             profileImg = request.imagePath ?: "https://",
-            star = 0,
+            star = 0f,
             starCount = 0
         )
     }
