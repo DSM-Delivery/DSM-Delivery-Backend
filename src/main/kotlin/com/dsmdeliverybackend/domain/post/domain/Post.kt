@@ -64,4 +64,8 @@ class Post (
     @Column(columnDefinition = "VARCHAR(50)")
     var riderRequest = riderRequest
 
+    fun deliveryComplete(request: Boolean) {
+        this.isFinished = request
+    }
+
 }
