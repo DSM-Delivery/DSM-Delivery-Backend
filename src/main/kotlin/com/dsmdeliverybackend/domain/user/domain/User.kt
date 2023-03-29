@@ -21,7 +21,7 @@ class User (
     @Column(columnDefinition = "VARCHAR(10)")
     val userName: String,
 
-    star: Int,
+    star: Float,
 
     starCount: Int,
 
@@ -74,5 +74,10 @@ class User (
     @Column(columnDefinition = "VARCHAR(255)")
     var profileImg = profileImg
         protected set
+
+    fun modifyStar(starAvg: Float) {
+        this.star = starAvg
+        this.starCount += 1
+    }
 
 }
