@@ -23,6 +23,8 @@ class User (
 
     star: Int,
 
+    starCount: Int,
+
     profileImg: String,
 
     @field:NotNull
@@ -61,6 +63,11 @@ class User (
     @field:NotNull
     @Column(columnDefinition = "VARCHAR(5)")
     var star = star
+        protected set
+
+    @field:NotNull
+    @Column(columnDefinition = "VARCHAR(5)")
+    var starCount = starCount
         protected set
 
     @field:NotNull

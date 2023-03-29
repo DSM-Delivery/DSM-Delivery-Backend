@@ -6,8 +6,6 @@ import com.dsmdeliverybackend.domain.refresh_token.dto.response.TokenResponse
 import com.dsmdeliverybackend.domain.user.domain.User
 import com.dsmdeliverybackend.domain.user.domain.repository.UserRepository
 import com.dsmdeliverybackend.domain.user.exception.UserNotFoundException
-import com.dsmdeliverybackend.global.error.DsmDeliveryException
-import com.dsmdeliverybackend.global.error.ErrorCode
 import com.dsmdeliverybackend.global.security.jwt.SecurityProperties
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.security.core.context.SecurityContextHolder
