@@ -15,7 +15,7 @@ class QueryPostDetailResponse (
 
     val riderRequest: String,
 
-    val star: Int,
+    val star: Float,
 
     val productType: String
 )

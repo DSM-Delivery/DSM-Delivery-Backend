@@ -17,5 +17,5 @@ class RiderResponse (
 
     val profileImg: String,
 
-    val star: Int
+    val star: Float
 )

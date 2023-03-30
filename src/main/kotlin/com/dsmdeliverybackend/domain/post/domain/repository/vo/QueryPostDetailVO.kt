@@ -17,7 +17,7 @@ class QueryPostDetailVO @QueryProjection constructor(
 
     val profileImg: String,
 
-    val star: Int,
+    val star: Float,
 
     val productType: String
 )
