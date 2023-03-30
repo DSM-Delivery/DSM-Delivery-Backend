@@ -6,7 +6,7 @@ import javax.persistence.Column
 import javax.persistence.Embeddable
 
 @Embeddable
-class ConclustionEntityId (
+class ConclusionEntityId (
 
     @Column(nullable = false)
     val user: UUID,

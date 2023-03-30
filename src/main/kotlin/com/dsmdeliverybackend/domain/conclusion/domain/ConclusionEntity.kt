@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull
 class ConclusionEntity (
 
     @EmbeddedId
-    var id: ConclustionEntityId,
+    var id: ConclusionEntityId,
 
     @MapsId("user")
     @ManyToOne(fetch = FetchType.LAZY)

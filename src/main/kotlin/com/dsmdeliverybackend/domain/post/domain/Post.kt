@@ -25,13 +25,13 @@ class Post (
 
     isChecked: Boolean,
 
+    location: String,
+
+    riderRequest: String,
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     val user: User,
-
-    location: String,
-
-    riderRequest: String
 
 ) :BaseUUIDEntity(id) {
 
