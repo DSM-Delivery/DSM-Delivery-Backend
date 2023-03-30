@@ -16,6 +16,7 @@ enum class ErrorCode (
     PARCEL_NOT_FOUND(404, "Parcel Not Found"),
     POST_NOT_FOUND(404, "Post Not Found"),
     PRODUCT_NOT_FOUND(404, "Product Not Found"),
+    CONCLUSION_NOT_FOUND(404, "Conclusion Not Found"),
 
     USER_ALREADY_EXIST(409, "User Already Exist"),
     SNACK_ALREADY_EXIST(409, "Snack Already Exist"),
