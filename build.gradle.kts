@@ -45,7 +45,7 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE")
 
     //coolSMS
-    implementation("net.nurigo:javaSDK:2.2")
+    implementation("net.nurigo:sdk:4.2.7")
 
     //kotlin
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
