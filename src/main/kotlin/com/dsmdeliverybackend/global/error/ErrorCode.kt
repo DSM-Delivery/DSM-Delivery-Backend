@@ -7,6 +7,9 @@ enum class ErrorCode (
     override val message: String
 ) : ErrorResponse {
 
+    IMAGE_NOT_FOUND(400, "Image Not Found"),
+    SAVE_IMAGE_FAILED(400, "Save Image Failed"),
+
     INVALID_TOKEN(401, "Invalid Token"),
     EXPIRED_TOKEN(401, "Expired Token"),
     PASSWORD_MIS_MATCH(401, "Password Mis Match"),
