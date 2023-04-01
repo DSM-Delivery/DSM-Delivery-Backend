@@ -4,10 +4,10 @@ import com.dsmdeliverybackend.domain.user.presentation.dto.request.UserSignInReq
 import com.dsmdeliverybackend.domain.user.presentation.dto.request.UserSignUpRequest
 import com.dsmdeliverybackend.domain.refresh_token.dto.response.TokenResponse
 import com.dsmdeliverybackend.domain.user.presentation.dto.request.UserStarRequest
-import com.dsmdeliverybackend.domain.user.service.TokenRefreshService
-import com.dsmdeliverybackend.domain.user.service.UserSignInService
-import com.dsmdeliverybackend.domain.user.service.UserSignUpService
-import com.dsmdeliverybackend.domain.user.service.UserStarAvgService
+import com.dsmdeliverybackend.domain.user.presentation.dto.response.SmsCheckResponse
+import com.dsmdeliverybackend.domain.user.service.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -21,7 +21,8 @@ class UserController(
     private val signUpService: UserSignUpService,
     private val signInService: UserSignInService,
     private val tokenRefreshService: TokenRefreshService,
-    private val userStarAvgService: UserStarAvgService
+    private val userStarAvgService: UserStarAvgService,
+    private val userPhoneNumberCheckService: UserPhoneNumberCheckService
 ) {
 
     @PostMapping("/register")
@@ -44,4 +45,8 @@ class UserController(
         userStarAvgService.execute(request)
     }
 
+    @GetMapping("/sendSMS/{phone-number}")
+    fun sendSms(@PathVariable("phone-number") phoneNumber: String): SmsCheckResponse {
+        return userPhoneNumberCheckService.execute(phoneNumber)
+    }
 }
