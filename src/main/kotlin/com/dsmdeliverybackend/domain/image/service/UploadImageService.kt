@@ -9,9 +9,8 @@ class UploadImageService (
     private val s3Facade: S3Facade
 ) {
 
-    fun execute(images: List<MultipartFile>): ImageUrlResponse {
-        val imageUrl = images.map { s3Facade.uploadImage(it) }
-            .toList()
+    fun execute(images: MultipartFile): ImageUrlResponse {
+        val imageUrl =  s3Facade.uploadImage(images)
 
         return ImageUrlResponse(imageUrl)
     }
