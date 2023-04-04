@@ -5,7 +5,6 @@ import com.amazonaws.services.s3.model.CannedAccessControlList
 import com.amazonaws.services.s3.model.ObjectMetadata
 import com.amazonaws.services.s3.model.PutObjectRequest
 import com.dsmdeliverybackend.global.exception.ImageNotFoundException
-import com.dsmdeliverybackend.global.exception.SaveImageFailedException
 import com.dsmdeliverybackend.infrastructure.s3.S3Properties
 import org.springframework.stereotype.Component
 import org.springframework.web.multipart.MultipartFile
@@ -21,18 +20,20 @@ class S3Facade (
         if (image.isEmpty())
             throw ImageNotFoundException
 
-        val s3FileName: String = s3Properties.bucket + UUID.randomUUID() + image.originalFilename
+        val s3FileName: String = UUID.randomUUID().toString()
 
         try {
-            val putObjectRequest = PutObjectRequest (
-            s3Properties.bucket,
-            s3FileName,
-            image.inputStream,
-            getObjectMetadata(image))
-
-            amazonS3.putObject(putObjectRequest.withCannedAcl(CannedAccessControlList.PublicRead))
+            amazonS3.putObject(
+                PutObjectRequest(
+                    s3Properties.bucket,
+                    s3FileName,
+                    image.inputStream,
+                    getObjectMetadata(image)
+                ).withCannedAcl(CannedAccessControlList.PublicRead)
+            )
         } catch (e: Exception) {
-            throw SaveImageFailedException
+            println(e.cause)
+            println(e.message)
         }
 
         return getFileUrl(s3FileName)
