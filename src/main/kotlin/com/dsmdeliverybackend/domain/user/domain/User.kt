@@ -3,10 +3,14 @@ package com.dsmdeliverybackend.domain.user.domain
 import com.dsmdeliverybackend.global.entity.BaseUUIDEntity
 import com.dsmdeliverybackend.global.enum.Role
 import com.dsmdeliverybackend.global.enum.Sex
+import com.dsmdeliverybackend.infrastructure.s3.DefaultImage
+import org.hibernate.annotations.ColumnDefault
+import org.hibernate.annotations.DynamicInsert
 import org.jetbrains.annotations.NotNull
 import java.util.UUID
 import javax.persistence.*
 
+@DynamicInsert
 @Entity
 @Table(name = "tbl_user")
 class User (
@@ -25,7 +29,7 @@ class User (
 
     starCount: Int,
 
-    profileImg: String,
+    profileImg: String = DefaultImage.DEFAULT_PROFILE_IMAGE,
 
     @field:NotNull
     @Column(columnDefinition = "VARCHAR(11)")
