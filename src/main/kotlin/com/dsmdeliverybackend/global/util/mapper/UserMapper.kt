@@ -18,7 +18,6 @@ class UserMapper (
             sex = request.sex,
             role = request.role,
             canDriver = false,
-            profileImg = request.imagePath ?: "https://",
             star = 0f,
             starCount = 0
         )

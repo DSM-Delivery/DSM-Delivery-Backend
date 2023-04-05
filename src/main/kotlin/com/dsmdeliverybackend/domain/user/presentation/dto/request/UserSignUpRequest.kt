@@ -21,9 +21,6 @@ data class UserSignUpRequest (
     val name: String,
 
     @field:NotBlank
-    val imagePath: String,
-
-    @field:NotBlank
     val phoneNumber: String,
 
     @field:NotBlank
