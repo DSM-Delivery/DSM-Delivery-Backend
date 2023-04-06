@@ -23,7 +23,6 @@ class PostFacade(
                 location = request.location,
                 riderRequest = request.riderRequest,
                 postType = request.postType,
-                isFinished = false,
                 isChecked = false,
                 user = user
         ))

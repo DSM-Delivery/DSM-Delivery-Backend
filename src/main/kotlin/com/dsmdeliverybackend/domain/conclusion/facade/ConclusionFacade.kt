@@ -22,7 +22,8 @@ class ConclusionFacade (
                     post = post.id
                 ),
                 user = user,
-                post = post
+                post = post,
+                isFinished = false
         ))
     }
 

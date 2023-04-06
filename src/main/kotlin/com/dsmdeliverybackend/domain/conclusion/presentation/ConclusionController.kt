@@ -2,6 +2,7 @@ package com.dsmdeliverybackend.domain.conclusion.presentation
 
 import com.dsmdeliverybackend.domain.conclusion.presentation.response.QueryConclusionResponse
 import com.dsmdeliverybackend.domain.conclusion.service.CreateConclusionService
+import com.dsmdeliverybackend.domain.conclusion.service.DeliveryCompleteService
 import com.dsmdeliverybackend.domain.conclusion.service.QueryConclusionService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -14,7 +15,8 @@ import java.util.UUID
 @RestController
 class ConclusionController (
     private val createConclusionService: CreateConclusionService,
-    private val queryConclusionService: QueryConclusionService
+    private val queryConclusionService: QueryConclusionService,
+    private val deliveryCompleteService: DeliveryCompleteService
 ) {
 
     @PostMapping("/{post-id}")
@@ -25,6 +27,11 @@ class ConclusionController (
     @GetMapping("/{post-id}")
     fun queryConclusion(@PathVariable("post-id") postId: UUID): QueryConclusionResponse {
         return queryConclusionService.execute(postId)
+    }
+
+    @PostMapping("/complete/{post-id}")
+    fun deliveryComplete(@PathVariable("post-id") request: UUID) {
+        deliveryCompleteService.execute(request)
     }
 
 }

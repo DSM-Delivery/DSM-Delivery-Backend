@@ -1,5 +1,6 @@
 package com.dsmdeliverybackend.domain.post.presentation
 
+import com.dsmdeliverybackend.domain.conclusion.service.DeliveryCompleteService
 import com.dsmdeliverybackend.domain.post.presentation.dto.request.CreatePostRequest
 import com.dsmdeliverybackend.domain.post.presentation.dto.response.OrderPostListResponse
 import com.dsmdeliverybackend.domain.post.presentation.dto.response.PostUUIDResponse
@@ -21,17 +22,11 @@ class PostController (
     private val queryOrderPostListService: QueryOrderPostListService,
     private val queryPostDetailService: QueryPostDetailService,
     private val queryRiderPostListService: QueryRiderPostListService,
-    private val deliveryCompleteService: DeliveryCompleteService
 ) {
 
     @PostMapping
     fun createPost(@RequestBody request: CreatePostRequest): PostUUIDResponse {
         return createPostService.execute(request)
-    }
-
-    @PostMapping("/{post-id}")
-    fun deliveryComplete(@PathVariable("post-id") request: UUID) {
-        deliveryCompleteService.execute(request)
     }
 
     @GetMapping("/order")
