@@ -1,5 +1,6 @@
 package com.dsmdeliverybackend.domain.post.domain.repository
 
+import com.dsmdeliverybackend.domain.conclusion.domain.QConclusionEntity.conclusionEntity
 import com.dsmdeliverybackend.domain.post.domain.QPost.post
 import com.dsmdeliverybackend.domain.post.domain.repository.vo.*
 import com.dsmdeliverybackend.domain.product.domain.QProductEntity.productEntity
@@ -30,7 +31,8 @@ class CustomPostRepositoryImpl(
             .innerJoin(post.user, user)
             .innerJoin(selectionEntity).on(selectionEntity.post.id.eq(post.id))
             .innerJoin(selectionEntity.productEntity, productEntity)
-            .where(post.isFinished.isFalse, post.postType.eq("ORDER"))
+            .leftJoin(conclusionEntity).on(post.id.eq(conclusionEntity.post.id))
+            .where(post.postType.eq("ORDER").and(conclusionEntity.post.id.isNull))
             .distinct()
             .fetch().toList()
     }
@@ -49,9 +51,9 @@ class CustomPostRepositoryImpl(
                 )
             )
             .from(post)
-            .innerJoin(post.user, user)
-            .on(post.user.id.eq(user.id))
-            .where(post.isFinished.isFalse, post.postType.eq("RIDER"))
+            .innerJoin(post.user, user).on(post.user.id.eq(user.id))
+            .leftJoin(conclusionEntity).on(post.id.eq(conclusionEntity.post.id))
+            .where(post.postType.eq("RIDER").and(conclusionEntity.post.id.isNull))
             .fetch().toList()
     }
 
