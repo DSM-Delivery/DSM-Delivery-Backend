@@ -22,6 +22,16 @@ class ConclusionEntity (
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "post_id", columnDefinition = "BINARY(16)")
     @field:NotNull
-    val post: Post
+    val post: Post,
 
-)
+    isFinished: Boolean
+
+) {
+    @field:NotNull
+    @Column(columnDefinition = "BIT(1)")
+    var isFinished = isFinished
+
+    fun deliveryComplete(request: Boolean) {
+        this.isFinished = request
+    }
+}

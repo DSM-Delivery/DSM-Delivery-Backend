@@ -21,8 +21,6 @@ class Post (
     @field: NotNull
     val postType: String,
 
-    isFinished: Boolean,
-
     isChecked: Boolean,
 
     location: String,
@@ -50,10 +48,6 @@ class Post (
 
     @field:NotNull
     @Column(columnDefinition = "BIT(1)")
-    var isFinished = isFinished
-
-    @field:NotNull
-    @Column(columnDefinition = "BIT(1)")
     var isChecked = isChecked
 
     @field:NotNull
@@ -63,9 +57,5 @@ class Post (
     @field:NotNull
     @Column(columnDefinition = "VARCHAR(50)")
     var riderRequest = riderRequest
-
-    fun deliveryComplete(request: Boolean) {
-        this.isFinished = request
-    }
 
 }
