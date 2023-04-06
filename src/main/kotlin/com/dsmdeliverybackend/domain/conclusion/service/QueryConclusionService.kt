@@ -13,10 +13,8 @@ class QueryConclusionService (
 ) {
 
     fun execute(postId: UUID): QueryConclusionResponse {
-        println(1)
         val conclusion = conclusionFacade.findByPostId(postId)
 
-        println(conclusion)
         val post = postFacade.getPostByUUID(postId)
 
         return QueryConclusionResponse(
