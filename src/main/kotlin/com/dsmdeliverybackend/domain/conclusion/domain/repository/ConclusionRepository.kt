@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository
 import java.util.UUID
 
 @Repository
-interface ConclusionRepository : CrudRepository<ConclusionEntity, UUID> {
+interface ConclusionRepository : CrudRepository<ConclusionEntity, UUID>, CustomConclusionRepository {
     fun findByPostId(postId: UUID): ConclusionEntity?
 }
