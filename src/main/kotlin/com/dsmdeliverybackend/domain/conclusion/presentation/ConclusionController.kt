@@ -1,6 +1,8 @@
 package com.dsmdeliverybackend.domain.conclusion.presentation
 
+import com.dsmdeliverybackend.domain.conclusion.presentation.response.ConclusionNoticeResponse
 import com.dsmdeliverybackend.domain.conclusion.presentation.response.QueryConclusionResponse
+import com.dsmdeliverybackend.domain.conclusion.service.ConclusionNoticeService
 import com.dsmdeliverybackend.domain.conclusion.service.CreateConclusionService
 import com.dsmdeliverybackend.domain.conclusion.service.DeliveryCompleteService
 import com.dsmdeliverybackend.domain.conclusion.service.QueryConclusionService
@@ -16,7 +18,8 @@ import java.util.UUID
 class ConclusionController (
     private val createConclusionService: CreateConclusionService,
     private val queryConclusionService: QueryConclusionService,
-    private val deliveryCompleteService: DeliveryCompleteService
+    private val deliveryCompleteService: DeliveryCompleteService,
+    private val conclusionNoticeService: ConclusionNoticeService
 ) {
 
     @PostMapping("/{post-id}")
@@ -32,6 +35,11 @@ class ConclusionController (
     @PostMapping("/complete/{post-id}")
     fun deliveryComplete(@PathVariable("post-id") request: UUID) {
         deliveryCompleteService.execute(request)
+    }
+
+    @GetMapping("/notice")
+    fun notice(): ConclusionNoticeResponse {
+        return conclusionNoticeService.execute()
     }
 
 }
